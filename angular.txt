@@ -1,0 +1,19 @@
+Angular
+
+State:
+-  To add some state variable or function in our ts file, go in the class Component and add your content (if variables specify their types too).
+-  To link a method in our html file, add the method name as a string after the event (example: <button (click)="myAction"></button>).
+-  We can give an Angular name syntx to our html element by adding #name in our element attribute (example: <input #myInput />).
+-  To use the variables inside of our html, use the double {} with the variable inside (example: { { variables } }).
+-  in our Html file, puting the value attribute inside brackets [] specifies that the value will always take and be updated by the value entered by the user.
+
+
+Structural attributes:
+-  To loop through datas and generate an Html element based on it, use *ngFor as that Html element attribute (example: <li *ngFor="let element of variable">{{element}}</li>).
+
+Component:
+-  In the terminal, type ng g component name to generate a new component folder.
+-  In the component.ts we can add a component by importing it and adding it to the class component (example: import {Input}; @Input()).
+
+Pipes:
+-  Those are embeded methods that we can invoque directly in our html document after using the | operator (example: {{member | titlecase}})
