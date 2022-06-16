@@ -1,4 +1,3 @@
-<h1 class="center"> Welcome to you! </h1>
 <!-- <input 
 #input
 (keyup.enter)="selectPokemon(input.value)"
@@ -6,5 +5,13 @@ type="number"
 >
 <p *ngIf="pokemonSelected" >Vous avez selectionné {{pokemonSelected?.name}}</p>
 <p *ngIf="!pokemonSelected" >Veuillez selectionner un pokemon dans la liste</p> -->
+
+<nav>
+    <div class="nav-wrapper teal">
+        <a href="#" class="brand-logo center">
+            Pokedex
+        </a>
+    </div>
+</nav>
 
 <router-outlet></router-outlet>
