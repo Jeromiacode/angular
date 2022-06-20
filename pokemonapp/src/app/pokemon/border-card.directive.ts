@@ -17,8 +17,6 @@ export class BorderCardDirective {
    @Input('pokemonBorderCard') borderColor: string;
 
    @HostListener('mouseenter') onMouseEnter(){
-    console.log(this.borderColor);
-    
     this.setBorder(this.borderColor || this.defaultColor);
    }
    @HostListener('mouseleave') onMouseLeave(){
