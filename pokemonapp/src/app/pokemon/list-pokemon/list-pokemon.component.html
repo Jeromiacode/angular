@@ -1,5 +1,8 @@
 <div class="container">
     <div class="row">
+
+        <app-search-pokemon></app-search-pokemon>
+
         <div class="col m4 s6" *ngFor="let pokemon of pokemonList" >
             <div class="card horizontal" (click)="goToPokemon(pokemon)" pokemonBorderCard="#ff0000">
                 <div class="card-image">
@@ -16,3 +19,5 @@
         </div>
     </div>
 </div>
+
+<a href="" class="btn-floating btn-large, waves-effect waves-large red z-depth-3" style="position: fixed; bottom: 25px; right: 25px; padding-left: 7px;" routerLink="/pokemon/add">Add</a>
