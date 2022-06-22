@@ -34,3 +34,44 @@
 [debug] [2022-06-22T07:39:55.336Z] [hosting][hash queue][FINAL] {"max":1,"min":0,"avg":0,"active":0,"complete":7,"success":7,"errored":0,"retried":0,"total":7,"elapsed":5}
 [debug] [2022-06-22T07:39:55.337Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions/453000441753309b:populateFiles [none]
 [debug] [2022-06-22T07:39:55.337Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions/453000441753309b:populateFiles {"files":{"/3rdpartylicenses.txt":"13f4e188f745be3cfdb2d2114eb90c6f02a9fbcc38e1a1441f156e17cb7f246b","/favicon.ico":"2c19690e9587bae12f419b34d2edeecc76808099540a9c9f4ea6194116cfc8f7","/index.html":"065c2d38547c732a45a6aef8386b77cfee33414017f6b7d81c8b67fd8a27d25b","/main.e27795db845a1f11.js":"5e465eaa221a26271a71d66c25f4b643936440b2fb17fbf68a8c861a1c9fe53a","/polyfills.1459de150ff35184.js":"41e0664800d677c81491ce5d67e7ae84832723119824b15c6e2be40dd4e52636","/runtime.9928a10a5e7e1be3.js":"cdc841c5824d3429dffa817613ed3f0504c178c3bc3db2503676750c839ffdf2","/styles.ef46db3751d8e999.css":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"}}
+[debug] [2022-06-22T08:10:24.584Z] ----------------------------------------------------------------------
+[debug] [2022-06-22T08:10:24.586Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\depuy\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-06-22T08:10:24.587Z] CLI Version:   11.1.0
+[debug] [2022-06-22T08:10:24.587Z] Platform:      win32
+[debug] [2022-06-22T08:10:24.587Z] Node Version:  v14.18.2
+[debug] [2022-06-22T08:10:24.588Z] Time:          Wed Jun 22 2022 17:10:24 GMT+0900 (heure normale de la Corée)
+[debug] [2022-06-22T08:10:24.588Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-22T08:10:24.689Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-22T08:10:24.690Z] > authorizing via signed-in user (depuytjerome@gmail.com)
+[debug] [2022-06-22T08:10:24.690Z] [iam] checking project pokemon-app-a898b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-06-22T08:10:24.691Z] > refreshing access token with scopes: []
+[debug] [2022-06-22T08:10:24.693Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-06-22T08:10:24.693Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-06-22T08:10:24.975Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-06-22T08:10:24.975Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-06-22T08:10:25.003Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/pokemon-app-a898b:testIamPermissions [none]
+[debug] [2022-06-22T08:10:25.004Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pokemon-app-a898b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-22T08:10:26.208Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/pokemon-app-a898b:testIamPermissions 200
+[debug] [2022-06-22T08:10:26.208Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pokemon-app-a898b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-22T08:10:26.210Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-app-a898b [none]
+[debug] [2022-06-22T08:10:26.726Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-app-a898b 200
+[debug] [2022-06-22T08:10:26.726Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-app-a898b {"projectId":"pokemon-app-a898b","projectNumber":"445732525579","displayName":"pokemon-app","name":"projects/pokemon-app-a898b","resources":{"hostingSite":"pokemon-app-a898b"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'pokemon-app-a898b'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-06-22T08:10:26.736Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-app-a898b [none]
+[debug] [2022-06-22T08:10:27.126Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-app-a898b 200
+[debug] [2022-06-22T08:10:27.127Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pokemon-app-a898b {"projectId":"pokemon-app-a898b","projectNumber":"445732525579","displayName":"pokemon-app","name":"projects/pokemon-app-a898b","resources":{"hostingSite":"pokemon-app-a898b"},"state":"ACTIVE"}
+[debug] [2022-06-22T08:10:27.134Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions [none]
+[debug] [2022-06-22T08:10:27.134Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-06-22T08:10:28.506Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions 200
+[debug] [2022-06-22T08:10:28.506Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions {"name":"projects/445732525579/sites/pokemon-app-a898b/versions/84e47b7820be5d34","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[pokemon-app-a898b]: beginning deploy... 
+[info] i  hosting[pokemon-app-a898b]: found 7 files in dist/pokemonapp 
+[debug] [2022-06-22T08:10:28.521Z] [hosting] uploading with 200 concurrency
+[debug] [2022-06-22T08:10:28.526Z] [hosting] hash cache [ZGlzdFxwb2tlbW9uYXBw] stored for 7 files
+[debug] [2022-06-22T08:10:28.526Z] [hosting][hash queue][FINAL] {"max":1,"min":0,"avg":0,"active":0,"complete":7,"success":7,"errored":0,"retried":0,"total":7,"elapsed":4}
+[debug] [2022-06-22T08:10:28.526Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions/84e47b7820be5d34:populateFiles [none]
+[debug] [2022-06-22T08:10:28.527Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/445732525579/sites/pokemon-app-a898b/versions/84e47b7820be5d34:populateFiles {"files":{"/3rdpartylicenses.txt":"13f4e188f745be3cfdb2d2114eb90c6f02a9fbcc38e1a1441f156e17cb7f246b\r","/favicon.ico":"2c19690e9587bae12f419b34d2edeecc76808099540a9c9f4ea6194116cfc8f7\r","/index.html":"065c2d38547c732a45a6aef8386b77cfee33414017f6b7d81c8b67fd8a27d25b\r","/main.e27795db845a1f11.js":"5e465eaa221a26271a71d66c25f4b643936440b2fb17fbf68a8c861a1c9fe53a\r","/polyfills.1459de150ff35184.js":"41e0664800d677c81491ce5d67e7ae84832723119824b15c6e2be40dd4e52636\r","/runtime.9928a10a5e7e1be3.js":"cdc841c5824d3429dffa817613ed3f0504c178c3bc3db2503676750c839ffdf2\r","/styles.ef46db3751d8e999.css":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e\r"}}

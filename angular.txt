@@ -1,5 +1,18 @@
 Angular
 
+Installation:
+-  > ng install -g @angular/cli
+-  > ng new project-name
+-  > ng serve
+
+Core components:
+-  In the [app.components.ts] import {OnChanges, OnInit, DoChecks, AfterViewInit, OnDestroy} from '@angular/core
+-  In export class, add implements OnInit and call the function inside (ngOnInit(): void{}).
+
+Loops and Syntax:
+-  To loop through datas and generate an Html element based on it, use *ngFor as that Html element attribute (example: <li *ngFor="let element of variable">{{element}}</li>).
+-  To make a condition inside the template, use *ngIf="condition"
+
 State:
 -  To add some state variable or function in our ts file, go in the class Component and add your content (if variables specify their types too).
 -  To link a method in our html file, add the method name as a string after the event (example: <button (click)="myAction"></button>).
@@ -7,13 +20,112 @@ State:
 -  To use the variables inside of our html, use the double {} with the variable inside (example: { { variables } }).
 -  in our Html file, puting the value attribute inside brackets [] specifies that the value will always take and be updated by the value entered by the user.
 
+Methods:
+-  (click) : when we click on the HTML element.
+-  (keyup) & (keyup.enter) : when the key change or when we press enter
 
-Structural attributes:
--  To loop through datas and generate an Html element based on it, use *ngFor as that Html element attribute (example: <li *ngFor="let element of variable">{{element}}</li>).
+Templating:
+-  In the [app.components.ts] change template in the @Component by templateUrl: 'app.component.html'.
 
-Component:
--  In the terminal, type ng g component name to generate a new component folder.
--  In the component.ts we can add a component by importing it and adding it to the class component (example: import {Input}; @Input()).
+Event:
+-  In the [app.components.ts] while defining the type of an function argument, choose MouseEvent (ex: function(event: MouseEvent)).
+-  After that, inside the function, you can use MouseEvent methods suchs as .target and link it with the HTML element with the keyword as (ex: const var: type = (event.target as HTMLInputElement)).
+-  You can skip the previous instruction if you define directly the name of the Html element inside the element itself [app.components.html] by using the prefix # (ex: <button #btn></button>). It allows you to use methods on this element directly (ex: <p>{{btn.value}}</p> or: (keyup)='function(btn.value)')
+-  In the [app.components.html] you can link the event method with the Html element by adding in it's attribute (method)='function($arg)' (ex: <button (click)='function($event)'></button>).
+-  There is many tupe of event such as (click), (keyup), ...
+
+Directives (composants, of attributes and structural):
+-  The selector in the Directive function is the argument we will call inside our component.html to link the custom variables and methods to our Html element.
+- In the terminal, generate the directive with the file name you chose > ng generate directive directiveName.
+-  In the [directiveName.directive.ts] import { Directive } component from '@angular/core'
+-  In the constructor, add a reference to the DOM element to which you are linking your directive (ex: contructor(private element: ElementRef)). Also import { ElementRef } from '@angular/core'.
+-  Inside the constructor, link the functions you will use inside the Directive class with this.myFunction(args).
+-  To call a mouse/keyboard action, import { HostListener } from '@angular/core' then in the directive class, add @HostListener('mouse/keyboardaction) onMouseAction(){}
+-  We can also pass some attributes to our directive by import { Input } from '@angular/core' and create in our directive class @input('directiveSelector') attribute: type (ex: <p directiveName="attribute-value"></p>, attribute: borderColor, attribute-value: #f5f5f5).
+-  Within the scope of this @Input method, we can use without alias as follow (@Input () directiveName: type;)
 
 Pipes:
--  Those are embeded methods that we can invoque directly in our html document after using the | operator (example: {{member | titlecase}})
+-  Those are embeded methods that we can invoque directly in our Html document after using the | operator (example: {{member | date | titlecase}}).
+-  The pipes are methods that are scoped to the variable/element used before in our Html document (ex: {{ variable-element | pipe }})
+-  We can generate our custom pipe with the command > ng generate pipe pipe-name.
+
+Component:
+-  > ng generate component componentName to generate a new component folder.
+-  Any new component folder will contain an .html document with our template and .ts document fot the methods an actions we will use to interact with our .html.
+
+Routes:
+-  In [app-routing.module.ts] import { ComponentName } from './component-folder/component-name.component';
+-  Modify the Array of Routes with an Object containing your routes path and components (ex: const routes: Routes = [{path: 'pathUrl', componnent: ComponentName]}).
+-  You can also use a redirect method by adding redirectTo: 'pathUrl' in your Object containing the route. (ex: [{path: 'pathUrl', redirectTo: 'redirectedPath', pathMatch: null}]).
+-  In [app.component.html] add the following Html element where you want to templated route (component) to be displayed: <router-outlet></router-outlet>.
+-  To get the specified part of the Url, import { ActivatedRoute } from '@angular/router' and add the private argument to the constructor of your component class (ex: constructor(private route: ActivatedRoute)
+-  Then use this.route.snapshot.paramMap.get('url') (ex: if /item/1 at item/:id, get('id')).
+-  To navigate within the routes, import { Router } from '@angular/router' and add the private argument to the constructor of your component class (ex: constructor(private router: Router).
+-  Then use this.router.navigate(['/pathUrl']).
+-  For the error404 page-not-found component, use '**' for the path in the routing.module.ts after creating the new component.
+
+Modules:
+-  > ng generate module moduleName
+-  In [pokemon.module.ts] add in @NgModule declarations Array the Component, Pipe, Directives, ... that you will need. (ex: declaration[ Component, Pipe, Directive]).
+-  Create your routes above the @NgModule with a const routes: Routes = [{path: 'url', component: ComponentName}].
+-  In the imports, add RouterModule.forChild(routes)
+-  In the [app.module.ts] import the PokemonModule in the exports Array.
+
+Services:
+-  > ng generate service folder-name/service-name
+-  In [component-name.component.ts] add in the constructor(private serviceName: Service){}
+-  To call the service method in the Component class, add ngOnInit(){this.variable = this.serviceName.serviceMethod()}.
+-  To scope the service usage, delete the  providedIn: 'root' from @Injectable.
+-  In [module-name.module.ts] in @NgModule add providers: [ServiceName].
+
+TODO
+
+Forms:
+-  In [app.module.ts] in the @NgModule, add to imports the FormsModule after the BrowserModule.
+-  > ng generate component folder-name/componenent-name --inline-template=false
+-  
+
+HTTP request service (API simulation):
+-  In [app.module.ts] import { HttpClientModule } from '@angular/common/http;
+-  Add HttpClientModule to imports in @NgModule.
+-  > npm install angular-in-memory-web-api --save-dev
+-  > ng generate service service-name
+-  In [service-name.service.ts] import { ServiceApiName } from 'angular-in-memory-web-api'.
+-  In the class ServiceName implements ServiceApiName{}.
+-  Go back to [app.module.ts] and add in the imports of @NgModule: HttpClientInMemoryWebApiModule.forRoot(ServiceName, { dataEncapsulation: false }).
+-  Use the rxjs library to declare an Observable with the answer data and log the results (tap) (ex: getServiceList(): Observable<list[]>{
+    return this.http.get<list[]>('toute').pipe(tap((res) => console.log(res)), catchError(err) => { console.log(err); return of([])})
+}).
+
+Security & production:
+-  > ng generate guard guard-name (CanActivate).
+-  In [pokemon-module.ts] import { AuthGuard } from '../auth.guard';
+-  In [pokemon-module.ts] modify the Routes and add CanActivate with the imported AuthGuard (ex:   {
+    path: 'edit/pokemon/:id',
+    component: EditPokemonComponent,
+    canActivate: [AuthGuard]
+  },)
+  -  new auth service (login, logout).
+  -  > ng build
+
+Attributs html:
+-  pattern: Permet de définir une regex pour la balise html.
+-  required: Champ requis.
+-  (event)="function": Définis une action et associe une fonction a celle-ci.
+-  #name="affectedModel": Défini un nom a la balise et permet d'y affecter un modèle specifique (facultatif).
+-  [(model)]: ?
+-  [hidden]="name.method": Propriété hidden relative à une méthode donnée. -  [name]='value': Aussi utiliser pour passer une valeur d'un @Input.
+-  .pristine: (name.pristine) est une méthode donnée qui défini que le champ n'a pas été modifié.
+
+#Practice:
+-  Create a list (with types) and cycle through the list with our component variable.
+-  Use a template component in our app.
+-  Create a custom directive for templating.
+-  Generate and custom a new pipe.
+
+Javascript methods:
+.splice
+.includes
+.throttle(Nbms)^
+.find
+ 
