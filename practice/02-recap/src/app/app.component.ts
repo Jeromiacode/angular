@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = '02-recap';
+  newMemberName = '';
+  members: string[] = [];
+
+  onInput(member: string){
+    this.newMemberName = member;
+    console.log(member);
+    
+  }
+
+  addMember() {
+    this.members.push(this.newMemberName)
+    console.log(this.members);
+    
+  }
 }

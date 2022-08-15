@@ -1,1 +1,13 @@
 State:
+-  In app.component.ts, the states are stored in the class AppaComponent.
+-  States will be used and accessed all along of our app.
+
+EventHandling:
+-  In an html element, add an #elementName to give that element a specific reference for event handling.
+-  In ou app.component.html file, create a method like (click) into parentheses and link it with a function created in our app.component.ts (ex: (click)="handleClick()").
+
+Structural directives:
+-  *ngFor="let x of y", permet d'itérer sur une liste de données comme un forof en js et ensuite de les afficher grace aux {{x}}.
+
+Attribute directives:
+-  
